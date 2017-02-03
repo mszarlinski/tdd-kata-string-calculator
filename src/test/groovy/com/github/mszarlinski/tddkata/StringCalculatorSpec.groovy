@@ -26,4 +26,13 @@ class StringCalculatorSpec extends Specification {
         then:
             sum == 29
     }
+
+    def "Should return 0 for empty string"() {
+        given:
+            String numbers = ""
+        when:
+            int sum = calc.add(numbers)
+        then:
+            sum == 0
+    }
 }

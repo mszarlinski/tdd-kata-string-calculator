@@ -8,6 +8,10 @@ import static java.util.Arrays.stream;
 public class StringCalculator {
 
     public int add(final String numbers) {
+        if ("".equals(numbers)) {
+            return 0;
+        }
+
         final String[] ints = numbers.split(",");
 
         return stream(ints)
