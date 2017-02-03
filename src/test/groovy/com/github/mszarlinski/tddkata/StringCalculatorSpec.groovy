@@ -35,4 +35,16 @@ class StringCalculatorSpec extends Specification {
         then:
             sum == 0
     }
+
+    def "Should handle unknown number of numbers"() {
+        when:
+            int sum = calc.add(numbers)
+        then:
+            sum == expected
+        where:
+            numbers               || expected
+            "1,2,3"               || 6
+            "1,2,3,4,5"           || 15
+            "1,2,3,4,5,6,7,8,9,0" || 45
+    }
 }
