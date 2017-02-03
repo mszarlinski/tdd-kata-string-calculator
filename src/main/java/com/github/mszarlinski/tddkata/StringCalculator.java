@@ -7,12 +7,14 @@ import static java.util.Arrays.stream;
  */
 public class StringCalculator {
 
+    private static final String SEPARATOR_REGEXP = "[,\n]";
+
     public int add(final String numbers) {
         if ("".equals(numbers)) {
             return 0;
         }
 
-        final String[] ints = numbers.split(",");
+        final String[] ints = numbers.split(SEPARATOR_REGEXP);
 
         return stream(ints)
             .mapToInt(Integer::parseInt)

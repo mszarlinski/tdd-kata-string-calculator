@@ -47,4 +47,13 @@ class StringCalculatorSpec extends Specification {
             "1,2,3,4,5"           || 15
             "1,2,3,4,5,6,7,8,9,0" || 45
     }
+
+    def "Should handle new lines between numbers"() {
+        given:
+            String numbers = "1\n2,3"
+        when:
+            int sum = calc.add(numbers)
+        then:
+            sum == 6
+    }
 }
