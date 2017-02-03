@@ -56,4 +56,19 @@ class StringCalculatorSpec extends Specification {
         then:
             sum == 6
     }
+
+    def "Should handle custom delimeter"() {
+        given:
+            String input = "//$delimeter\n$numbers"
+        when:
+            int sum = calc.add(input)
+        then:
+            sum == 6
+        where:
+            numbers   | delimeter
+            "1,2,3"   | ","
+            "1;2;3"   | ";"
+            "1@2@3"   | "@"
+            "1::2::3" | "::"
+    }
 }
